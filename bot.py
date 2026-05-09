@@ -34,9 +34,9 @@ def location_selected(call):
     location = call.data.split("_")[1]
     user_data[call.from_user.id] = {"location": location}
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("📦 Service 1", callback_data="service_Service 1"))
-    markup.add(InlineKeyboardButton("📦 Service 2", callback_data="service_Service 2"))
-    markup.add(InlineKeyboardButton("📦 Service 3", callback_data="service_Service 3"))
+    markup.add(InlineKeyboardButton("📦 Girlfriend services", callback_data="Girlfriend services"))
+    markup.add(InlineKeyboardButton("📦 videos and photos", callback_data="videos and photos"))
+    markup.add(InlineKeyboardButton("📦 sexting", callback_data="sexting"))
     bot.edit_message_text(
         f"📍 Location: {location}\n\nSelect your Service:",
         call.message.chat.id,
