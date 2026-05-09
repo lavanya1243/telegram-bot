@@ -1,9 +1,10 @@
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import threading
+import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-TOKEN = "8725602571:AAFU9wD0nr2cHg5M65nUIWMV9efUKalksMY"
+TOKEN = os.environ.get("TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 user_data = {}
