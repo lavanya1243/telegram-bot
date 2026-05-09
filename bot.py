@@ -67,16 +67,25 @@ def subject_selected(call):
     uid = call.from_user.id
     user_data[uid]["subject"] = subject
     data = user_data[uid]
-    bot.edit_message_text(
-        f"✅ Request sent!\n\n📍 {data['location']}\n📚 {data['class']}\n📖 {subject}\n\nWe will contact you soon! 😊",
-        call.message.chat.id, call.message.message_id
-    )
-    try:
-        bot.send_message("@cloudhaven8",
-            f"🔔 New Request!\n👤 @{call.from_user.username or 'No username'}\n📍 {data['location']}\n📚 {data['class']}\n📖 {subject}\n\nI want this service"
+
+    markup = InlineKeyboardMarkup()
+    markup.add(
+        InlineKeyboardButton(
+            "📩 Contact Now",
+            url="https://t.me/cloudhaven8?text=I+want+this+service"
         )
-    except:
-        pass
+    )
+
+    bot.edit_message_text(
+        f"✅ Great Choice!\n\n"
+        f"📍 {data['location']}\n"
+        f"📚 {data['class']}\n"
+        f"📖 {subject}\n\n"
+        f"👇 Click below to contact us!",
+        call.message.chat.id,
+        call.message.message_id,
+        reply_markup=markup
+    )
 
 print("✅ Bot chal raha hai...")
 bot.polling(none_stop=True)
