@@ -18,7 +18,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Bot is running! ❤️✨") 
+        self.wfile.write("Bot is running! ❤️✨".encode('utf-8')) 
 
     def log_message(self, format, *args):
         pass
